@@ -71,3 +71,31 @@ curl -X POST "https://graph.facebook.com/{PAGE_ID}/feed" \
 - **APP_SECRET** bilgisini bir çevre değişkeni olarak saklayarak güvenli bir şekilde kullanın.
 - Token'ların süresi dolabilir, bu yüzden belirli aralıklarla yenilenmesi gerekebilir.
 - Graph API kullanımı hakkında daha fazla bilgi için [Facebook API Belgeleri](https://developers.facebook.com/docs/) adresini ziyaret edebilirsiniz.
+  https://github.com/omeryttnc/facebook_api
+
+abi inceleyebilir misiniz tum yetkimiz facebook ozel sayfasinda o sayfa icerisinde
+
+get_group_Ids -> sayfalarimizin id lerini alabiliyoruz
+get_facebook_posts -> sayfamizin id sini verdigimiz sayfanin postlarini okuyabiliyoruz
+comment_on_post-> sectigimiz posta yorum yapabiliyoruz
+create_facebook_post-> yeni bir post olusturabiliyoruz
+create_facebook_photo_post -> resimli post olusturabiliyoruz
+create_facebook_video_post-> videolu post olusturabiliyoruz
+delete_facebook_post-> postu silebiliyoruz
+refresh_tokens -> bu islemleri yapiyorken bize iki tane token gerekli userToken ve pageToken bu ikisininde omru 2 saat normalde bunu uzun omurlu olusrutup .env dosyasina kaydediyoruz bu method cronjob olusutup icine eklemek gerekiyor yada task schedular dan da olusturulabilir hangi OS kullandigimiza bagli soyle bir sikinti var ama .env dosyasindaki degisikligi gormek icin projenin tekrar baslatilmasi lazim o yuzden bilgisayari aciliyorken en basta ilk bu code calisacak sekilde ayarlayip token lari update ederek 24 saatlik tokenlarimizi guncelleyebiliriz digger bir sorun eger token expired oldu ise expired token ile yeni token olusturamayacagimiz icin manuel olarak tekrar olsuturmamiz gerekiyor
+
+## dikkat
+
+- uygulamayi olusturuyorken https://developers.facebook.com/apps/?show_reminder=true
+- USE CASE kisminda OTHER secip sonra BUSSINESS secmemiz gerekiyor ki istedigimiz permissionlari ekleyebilelim
+- EN ONEMLISI de
+  read_insights
+  pages_show_list
+  read_page_mailboxes
+  business_management
+  pages_read_engagement
+  pages_read_user_content
+  pages_manage_posts
+  pages_manage_engagement
+
+izinlerini ilk token olusturuyorken permission kismindan eklememiz gerekiyor
