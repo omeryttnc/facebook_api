@@ -6,11 +6,12 @@ from src.ai import generate_ai_content, generate_ai_image
 if __name__ == "__main__":
     
     content = generate_ai_content("Yapay zeka ve gelecek")
+    contentForImage = generate_ai_content("A beautiful sunset over the mountains")
 
     url=generate_ai_image("A beautiful sunset over the mountains")
 
     create_facebook_post(content)
  
-    create_facebook_photo_post(url, "A beautiful sunset over the mountains")
+    create_facebook_photo_post(url, contentForImage)
 
 

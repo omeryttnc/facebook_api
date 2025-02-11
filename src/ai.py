@@ -10,7 +10,7 @@ def generate_ai_content(topic):
 
     openai.api_key = api_key 
     """AI kullanarak belirli bir konu hakkında içerik oluşturur"""
-    prompt = f"{topic} hakkında 3-4 cümlelik ilgi çekici bir sosyal medya paylaşımı yaz."
+    prompt = f"{topic} hakkında 3-4 cümlelik ilgi çekici ingilizce bir sosyal medya paylaşımı yazabilir misin ve konuyla alakali 5 ile 10 tane hastag ekle."
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",  # Modeli seçiyoruz
