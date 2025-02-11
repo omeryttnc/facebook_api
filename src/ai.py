@@ -1,44 +1,31 @@
+import os
 import openai
-import requests
-# OpenAI API Anahtarı
+from dotenv import load_dotenv
+load_dotenv()
+from .utils import log
+import time
 
 def generate_ai_content(topic):
+    api_key = os.getenv("OPENAI_API_KEY")
+
+    openai.api_key = api_key 
     """AI kullanarak belirli bir konu hakkında içerik oluşturur"""
     prompt = f"{topic} hakkında 3-4 cümlelik ilgi çekici bir sosyal medya paylaşımı yaz."
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",  # Modeli seçiyoruz
+            messages=[{"role": "user", "content": prompt}],  # 'messages' parametresi ile sohbet geçmişi sağlıyoruz
+            max_tokens=100,  # Token sayısını sınırlıyoruz
+            temperature=0.7,  # Yanıt çeşitliliği için sıcaklık parametresi
+            timeout=30
+        )
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": prompt}]
-    )
-
+    except openai.OpenAIError as e:
+        return f"⚠️ OpenAI API hatası: {e}"
+    except Exception as e:
+        return f"⚠️ Genel hata: {e}"
     return response["choices"][0]["message"]["content"]
 
-# Kullanım:
-# content = generate_ai_content("Yapay zeka ve gelecek")
-# print(content)
-
-
-# # Facebook API Bilgileri
-# ACCESS_TOKEN = "YOUR_FACEBOOK_PAGE_ACCESS_TOKEN"
-# PAGE_ID = "YOUR_FACEBOOK_PAGE_ID"
-
-# def post_to_facebook(content):
-#     """AI tarafından üretilen içeriği Facebook'ta paylaşır"""
-#     url = f"https://graph.facebook.com/v19.0/{PAGE_ID}/feed"
-#     data = {
-#         "message": content,
-#         "access_token": ACCESS_TOKEN
-#     }
-#     response = requests.post(url, data=data)
-
-#     if response.status_code == 200:
-#         print("✅ Post başarıyla paylaşıldı:", response.json())
-#     else:
-#         print("❌ Post paylaşılırken hata oluştu:", response.json())
-
-# # Kullanım:
-# ai_content = generate_ai_content("Yapay zeka ve sağlık sektörü")
-# create_facebook_post(ai_content)
 
 def generate_ai_image(prompt):
     """AI kullanarak bir görsel üretir"""
@@ -49,12 +36,4 @@ def generate_ai_image(prompt):
     )
     return response["data"][0]["url"]
 
-# def post_image_to_facebook(image_url, caption):
-#     """AI tarafından üretilen görselle birlikte Facebook'ta post paylaşır"""
-#     url = f"https://graph.facebook.com/v19.0/{PAGE_ID}/photos"
-#     data = {
-#         "url": image_url,
-#         "caption": caption,
-#         "access_token": ACCESS_TOKEN
-#     }
-#     response = requests.post
+
