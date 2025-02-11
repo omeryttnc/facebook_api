@@ -11,6 +11,7 @@ PAGE_ID = os.getenv("PAGE_ID")
 VERSION= os.getenv("VERSION")
 APP_ID= os.getenv("APP_ID")
 APP_SECRET= os.getenv("APP_SECRET")
+OPENAI_API_KEY= os.getenv("OPENAI_API_KEY")
 
 if not PAGE_ACCESS_TOKEN or not USER_ACCESS_TOKEN:
     raise ValueError("Lütfen .env dosyasına ACCESS_TOKEN ve PAGE_ID ekleyin!")
