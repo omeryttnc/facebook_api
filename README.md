@@ -4,6 +4,12 @@ https://developers.facebook.com/apps/?show_reminder=true
 Graph API explorer
 https://developers.facebook.com/tools/explorer/
 
+# KURULUM
+
+## dependency leri yuklemek icin
+
+pip install -r requirements.txt
+
 # Facebook API Kullanımı için README
 
 ## Gerekli Değişkenler ve Açıklamaları
@@ -115,11 +121,11 @@ izinlerini ilk token olusturuyorken permission kismindan eklememiz gerekiyor
 
 ## doldurulmasi gereken .env objeleri
 
-PAGE_ACCESS_TOKEN=**********************\*\*\***********************
-USER_ACCESS_TOKEN=**********************\*\*\***********************
-POST_ID=**********************\*\*\***********************
-PAGE_ID=**********************\*\*\***********************
-APP_ID=**********************\*\*\***********************
-APP_SECRET=**********************\*\*\***********************
-OPENAI_API_KEY=sk-proj---**********************\*\*\***********************
+PAGE_ACCESS_TOKEN=**********\*\***********\*\*\***********\*\***********
+USER_ACCESS_TOKEN=**********\*\***********\*\*\***********\*\***********
+POST_ID=**********\*\***********\*\*\***********\*\***********
+PAGE_ID=**********\*\***********\*\*\***********\*\***********
+APP_ID=**********\*\***********\*\*\***********\*\***********
+APP_SECRET=**********\*\***********\*\*\***********\*\***********
+OPENAI_API_KEY=sk-proj---**********\*\***********\*\*\***********\*\***********
 VERSION=v22.0
